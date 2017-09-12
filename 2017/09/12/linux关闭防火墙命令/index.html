@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>linux关闭防火墙命令 | 曹球的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux下开启/关闭防火墙命令iptables用于过滤数据包，属于网络层防火墙.firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。firewall的底层是使用iptables进行数据过滤，建立在iptables之上。 1) 永久性生效，重启后不会复原开启： chkconfig iptables on关闭： chkconfig iptables off 2) 即时生效，">
+  <meta name="description" content="Linux下开启/关闭防火墙命令iptables用于过滤数据包，属于网络层防火墙.firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。firewall的底层是使用iptables进行数据过滤，建立在iptables之上。 1) 永久性生效，重启后不会复原12$ 开启： chkconfig iptables on$ 关闭： chkconfig iptables off 2)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux关闭防火墙命令">
-<meta property="og:url" content="http://yoursite.com/2017/09/09/linux关闭防火墙命令/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/09/12/linux关闭防火墙命令/index.html">
 <meta property="og:site_name" content="曹球的博客">
-<meta property="og:description" content="Linux下开启/关闭防火墙命令iptables用于过滤数据包，属于网络层防火墙.firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。firewall的底层是使用iptables进行数据过滤，建立在iptables之上。 1) 永久性生效，重启后不会复原开启： chkconfig iptables on关闭： chkconfig iptables off 2) 即时生效，">
+<meta property="og:description" content="Linux下开启/关闭防火墙命令iptables用于过滤数据包，属于网络层防火墙.firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。firewall的底层是使用iptables进行数据过滤，建立在iptables之上。 1) 永久性生效，重启后不会复原12$ 开启： chkconfig iptables on$ 关闭： chkconfig iptables off 2)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-12T15:19:36.449Z">
+<meta property="og:updated_time" content="2017-09-12T15:29:39.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux关闭防火墙命令">
-<meta name="twitter:description" content="Linux下开启/关闭防火墙命令iptables用于过滤数据包，属于网络层防火墙.firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。firewall的底层是使用iptables进行数据过滤，建立在iptables之上。 1) 永久性生效，重启后不会复原开启： chkconfig iptables on关闭： chkconfig iptables off 2) 即时生效，">
+<meta name="twitter:description" content="Linux下开启/关闭防火墙命令iptables用于过滤数据包，属于网络层防火墙.firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。firewall的底层是使用iptables进行数据过滤，建立在iptables之上。 1) 永久性生效，重启后不会复原12$ 开启： chkconfig iptables on$ 关闭： chkconfig iptables off 2)">
   
     <link rel="alternative" href="/atom.xml" title="曹球的博客" type="application/atom+xml">
   
@@ -166,8 +166,8 @@
   
 
         
-        <a href="/2017/09/09/linux关闭防火墙命令/" class="archive-article-date">
-  	<time datetime="2017-09-09T07:58:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+        <a href="/2017/09/12/linux关闭防火墙命令/" class="archive-article-date">
+  	<time datetime="2017-09-12T15:18:32.323Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
 </a>
         
       </header>
@@ -175,7 +175,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Linux下开启-关闭防火墙命令"><a href="#Linux下开启-关闭防火墙命令" class="headerlink" title="Linux下开启/关闭防火墙命令"></a>Linux下开启/关闭防火墙命令</h1><p>iptables用于过滤数据包，属于网络层防火墙.<br>firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。<br>firewall的底层是使用iptables进行数据过滤，建立在iptables之上。</p>
-<p>1) 永久性生效，重启后不会复原<br>开启： chkconfig iptables on<br>关闭： chkconfig iptables off</p>
+<p>1) 永久性生效，重启后不会复原<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ 开启： chkconfig iptables on</div><div class="line">$ 关闭： chkconfig iptables off</div></pre></td></tr></table></figure></p>
 <p>2) 即时生效，重启后复原<br>开启： service iptables start<br>关闭： service iptables stop</p>
 <p>需要说明的是对于Linux下的其它服务都可以用以上命令执行开启和关闭操作。</p>
 <p>在当开启了防火墙时，做如下设置，开启相关端口，<br>修改/etc/sysconfig/iptables 文件，添加以下内容：</p>
@@ -274,7 +274,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/09/linux关闭防火墙命令/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/12/linux关闭防火墙命令/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +288,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/09/hello/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hello
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/09/hello-world2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/09/09/hello/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hello</div>
       <i class="icon-circle-right"></i>
     </a>
   
