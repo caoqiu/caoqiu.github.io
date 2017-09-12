@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="曹球的博客">
 <meta property="og:description" content="iptables用于过滤数据包，属于网络层防火墙.firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。firewall的底层是使用iptables进行数据过滤，建立在iptables之上。 1) 永久性生效，重启后不会复原12$ 开启： chkconfig iptables on$ 关闭： chkconfig iptables off 2) 即时生效，重启后复原12$ 开">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-12T15:32:01.821Z">
+<meta property="og:updated_time" content="2017-09-12T15:59:44.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux关闭防火墙命令">
 <meta name="twitter:description" content="iptables用于过滤数据包，属于网络层防火墙.firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。firewall的底层是使用iptables进行数据过滤，建立在iptables之上。 1) 永久性生效，重启后不会复原12$ 开启： chkconfig iptables on$ 关闭： chkconfig iptables off 2) 即时生效，重启后复原12$ 开">
@@ -177,6 +177,7 @@
         <p>iptables用于过滤数据包，属于网络层防火墙.<br>firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。<br>firewall的底层是使用iptables进行数据过滤，建立在iptables之上。</p>
 <p>1) 永久性生效，重启后不会复原<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ 开启： chkconfig iptables on</div><div class="line">$ 关闭： chkconfig iptables off</div></pre></td></tr></table></figure></p>
 <p>2) 即时生效，重启后复原<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ 开启： service iptables start</div><div class="line">$ 关闭： service iptables stop</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>需要说明的是对于Linux下的其它服务都可以用以上命令执行开启和关闭操作。</p>
 <p>在当开启了防火墙时，做如下设置，开启相关端口，<br>修改/etc/sysconfig/iptables 文件，添加以下内容：</p>
 <p>-A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT<br>-A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 22 -j ACCEPT</p>

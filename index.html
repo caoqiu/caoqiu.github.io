@@ -175,25 +175,9 @@
         <p>iptables用于过滤数据包，属于网络层防火墙.<br>firewall能够允许哪些服务可用，那些端口可用…. 属于更高一层的防火墙。<br>firewall的底层是使用iptables进行数据过滤，建立在iptables之上。</p>
 <p>1) 永久性生效，重启后不会复原<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ 开启： chkconfig iptables on</div><div class="line">$ 关闭： chkconfig iptables off</div></pre></td></tr></table></figure></p>
 <p>2) 即时生效，重启后复原<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ 开启： service iptables start</div><div class="line">$ 关闭： service iptables stop</div></pre></td></tr></table></figure></p>
-<p>需要说明的是对于Linux下的其它服务都可以用以上命令执行开启和关闭操作。</p>
-<p>在当开启了防火墙时，做如下设置，开启相关端口，<br>修改/etc/sysconfig/iptables 文件，添加以下内容：</p>
-<p>-A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT<br>-A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 22 -j ACCEPT</p>
-<p>二.UBuntu关闭防火墙<br>iptables -A INPUT -i !   PPP0   -j ACCEPT<br>三.CentOS Linux 防火墙配置及关闭<br>执行”setup”命令启动文字模式配置实用程序,在”选择一种工具”中选择”防火墙配置”,然后选择”运行工具”按钮,出现防火墙配置界面,将”安全级别”设为”禁用”,然后选择”确定”即可.<br>或者用命令:</p>
-<p>#/sbin/iptables -I INPUT -p tcp –dport 80 -j ACCEPT</p>
-<p>#/sbin/iptables -I INPUT -p tcp –dport 22 -j ACCEPT</p>
-<p>#/etc/rc.d/init.d/iptables save<br>这样重启计算机后,防火墙默认已经开放了80和22端口<br>这里应该也可以不重启计算机：</p>
-<p>#/etc/init.d/iptables restart<br>关闭防火墙服务即可：</p>
-<p>查看防火墙信息：</p>
-<p>#/etc/init.d/iptables status<br>关闭防火墙服务：</p>
-<p>#/etc/init.d/iptables stop<br>永久关闭？不知道怎么个永久法：</p>
-<p>#chkconfig –level 35 iptables off</p>
-<p>centos7 关闭firewall安装iptables并配置<br>一、配置防火墙，开启80端口、3306端口<br>CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙。<br>1、关闭firewall：<br>systemctl stop firewalld.service #停止firewall<br>systemctl disable firewalld.service #禁止firewall开机启动</p>
-<p>2、安装iptables防火墙 IT网，<a href="http://www.it.net.cn" target="_blank" rel="external">http://www.it.net.cn</a><br>yum install iptables-services #安装<br>vi /etc/sysconfig/iptables #编辑防火墙配置文件</p>
-<h1 id="Firewall-configuration-written-by-system-config-firewall"><a href="#Firewall-configuration-written-by-system-config-firewall" class="headerlink" title="Firewall configuration written by system-config-firewall"></a>Firewall configuration written by system-config-firewall</h1><h1 id="Manual-customization-of-this-file-is-not-recommended-IT网，http-www-it-net-cn"><a href="#Manual-customization-of-this-file-is-not-recommended-IT网，http-www-it-net-cn" class="headerlink" title="Manual customization of this file is not recommended. IT网，http://www.it.net.cn"></a>Manual customization of this file is not recommended. IT网，<a href="http://www.it.net.cn" target="_blank" rel="external">http://www.it.net.cn</a></h1><p>*filter<br>:INPUT ACCEPT [0:0]<br>:FORWARD ACCEPT [0:0]<br>:OUTPUT ACCEPT [0:0] Linux学习，http:// linux.it.net.cn<br>-A INPUT -m state –state ESTABLISHED,RELATED -j ACCEPT<br>-A INPUT -p icmp -j ACCEPT<br>-A INPUT -i lo -j ACCEPT<br>-A INPUT -m state –state NEW -m tcp -p tcp –dport 22 -j ACCEPT IT网，<a href="http://www.it.net.cn" target="_blank" rel="external">http://www.it.net.cn</a><br>-A INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT<br>-A INPUT -m state –state NEW -m tcp -p tcp –dport 3306 -j ACCEPT<br>-A INPUT -j REJECT –reject-with icmp-host-prohibited<br>-A FORWARD -j REJECT –reject-with icmp-host-prohibited Linux学习，http:// linux.it.net.cn<br>COMMIT<br>:wq! #保存退出<br>systemctl restart iptables.service #最后重启防火墙使配置生效<br>systemctl enable iptables.service #设置防火墙开机启动</p>
-<p>二、关闭SELINUX IT网，<a href="http://www.it.net.cn" target="_blank" rel="external">http://www.it.net.cn</a><br>vi /etc/selinux/config</p>
-<p>#SELINUX=enforcing #注释掉</p>
-<p>#SELINUXTYPE=targeted #注释掉<br>SELINUX=disabled #增加 Linux学习，http:// linux.it.net.cn<br>:wq! #保存退出 Linux学习，http:// linux.it.net.cn<br>setenforce 0 #使配置立即生效</p>
-
+        
+          <a class="article-more-a" href="/2017/09/12/linux关闭防火墙命令/#more">more >></a>
+        
       
 
       
